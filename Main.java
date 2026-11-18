@@ -1,14 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
-// ===== সাধারণ অ্যাকাউন্ট ক্লাস =====
 class Account {
     private int accNo;
     private String name;
     protected double balance;
     private ArrayList<String> history = new ArrayList<>();
-
-    // স্যার চাইলে এটা বদলে মিনিমাম ব্যালেন্স রাখা যাবে (যেমন 500)
+    
     protected static final double MIN_BALANCE = 0;
 
     public Account(int accNo, String name, double initialDeposit) {
@@ -67,9 +64,9 @@ class Account {
     }
 }
 
-// ===== সেভিংস অ্যাকাউন্ট (ইনহেরিটেন্স) =====
+
 class SavingsAccount extends Account {
-    private double interestRate; // শতকরা হার
+    private double interestRate; 
 
     public SavingsAccount(int accNo, String name, double initialDeposit, double interestRate) {
         super(accNo, name, initialDeposit);
@@ -87,7 +84,6 @@ class SavingsAccount extends Account {
     public String getType() { return "Savings (" + interestRate + "%)"; }
 }
 
-// ===== মেইন ক্লাস (মেনু) =====
 public class Main {
     static Scanner sc = new Scanner(System.in);
     static ArrayList<Account> accounts = new ArrayList<>();
